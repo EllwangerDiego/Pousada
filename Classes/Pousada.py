@@ -11,7 +11,7 @@ class Pousada:
 
 def cancela_reserva (nome_cliente):
     for reserva in self.reservas:
-        if reserva.cliente == nome_cliente and reserva.status == 'A':
+        if reserva.get.cliente() == nome_cliente and reserva.get.status() == 'A':
             reserva.status = 'C'
             print(f"Reserva de {nome_cliente} cancelada com sucesso! \n ")
         else:
