@@ -1,5 +1,11 @@
 import sys
 import time
+from Classes import Reserva
+
+f = open('reserva.txt', 'r')
+g = open('pousada.txt', 'r')
+h = open('produto.txt', 'r')
+i = open('quarto.txt', 'r')
 
 def main():
     print()
