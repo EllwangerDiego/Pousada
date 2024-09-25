@@ -1,6 +1,7 @@
 import sys
 import time
 from Classes import Reserva
+from Classes import Quarto
 
 f = open('reserva.txt', 'r')
 g = open('pousada.txt', 'r')
