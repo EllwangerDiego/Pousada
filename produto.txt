@@ -1,7 +1,7 @@
-agua,5.0
-refrigerante,6.0
-cerveja,8.0
-chocolate,6.0
-snack,4.0
-suco,6.0
-cafe,4.0
+1,agua,5.0
+2,refrigerante,6.0
+3,cerveja,8.0
+4,chocolate,6.0
+5,snack,4.0
+6,suco,6.0
+7,cafe,4.0

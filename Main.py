@@ -1,3 +1,5 @@
+#DIEGO ELLWANGER & JOÃO VITOR DALCIN ANDRIOLI
+
 import sys
 import time
 from Classes import Reserva

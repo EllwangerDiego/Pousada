@@ -1,3 +1,5 @@
+#DIEGO ELLWANGER & JOÃO VITOR DALCIN ANDRIOLI
+
 class Produto:
     def __init__(self, codigo: int, nome: str, preco: float):
         self.__codigo = codigo  # Código do produto
@@ -17,19 +19,19 @@ class Produto:
         return self.__preco
 
     def __str__(self):
-        # Retorna uma string formatada com as informações do produto
-        return f'Produto: {self.nome}, Código: {self.codigo}, Preço: R$ {self.preco:.2f}'
+        #RETORNA UMA STRING FORMATADA COM AS INFOS DO PRODUTO
+        return f'Código: {self.codigo}, Produto: {self.nome}, Preço: R$ {self.preco:.2f}'
 
     @staticmethod
     def serializar(produtos: list):
-        # Salva os produtos no arquivo produto.txt
+        #SALVA OS PRODUTOS NO ARQUIVO "produto.txt"
         with open('produto.txt', 'w') as f:
             for produto in produtos:
                 f.write(f'{produto.codigo},{produto.nome},{produto.preco:.2f}\n')
 
     @staticmethod
     def deserializar() -> list:
-        # Carrega os produtos do arquivo produto.txt
+        #CARREGA OS PRODUTOS DO ARQUIVO "produto.txt"
         produtos = []
         try:
             with open('produto.txt', 'r') as f:
@@ -39,3 +41,4 @@ class Produto:
         except FileNotFoundError:
             print("Arquivo produto.txt não encontrado. Nenhum produto carregado.")
         return produtos
+    #DEVOLVE EM UMA LISTA "produtos", para mais fáci manipulação

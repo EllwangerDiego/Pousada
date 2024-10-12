@@ -1,3 +1,5 @@
+#DIEGO ELLWANGER & JOÃO VITOR DALCIN ANDRIOLI
+
 class Reserva:
     def __init__(self, dia_inicio: int, dia_fim: int, cliente: str, quarto: str, status: str = 'A'):
         self.__dia_inicio = dia_inicio
@@ -27,7 +29,7 @@ class Reserva:
         return self.__status
     
     def verificar_check_in(self):
-        return self.__status == 'C'  # 'C' para Check-In
+        return self.__status == 'C'
 
     def __str__(self):
         return f'Reserva: {self.__cliente} - Quarto: {self.__quarto} - Início: {self.__dia_inicio} - Fim: {self.__dia_fim} - Status: {self.__status}'

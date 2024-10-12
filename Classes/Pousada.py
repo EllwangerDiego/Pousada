@@ -1,3 +1,5 @@
+#DIEGO ELLWANGER & JOÃO VITOR DALCIN ANDRIOLI
+
 from Reserva import Reserva
 
 class Pousada:
@@ -5,7 +7,7 @@ class Pousada:
         self.reservas = []
 
     def carregar_reservas(self):
-        # Carregar reservas do arquivo
+        #AQUI VAI CARREGAR AS RESERVAS DO ARQUIVO
         try:
             with open('reserva.txt', 'r') as f:
                 for linha in f:
@@ -16,12 +18,12 @@ class Pousada:
             print("Arquivo de reservas não encontrado.")
 
     def verificar_disponibilidade(self, quarto: str, dia_inicio: int, dia_fim: int) -> bool:
-        # Verifica se o quarto está disponível para as datas fornecidas
+        #FAZ UMA VERIFICAÇÃO DE DISPONIBILIDADE
         for reserva in self.reservas:
             if reserva.quarto == quarto:
                 if not (dia_fim < reserva.dia_inicio or dia_inicio > reserva.dia_fim):
-                    return False  # Quarto está ocupado
-        return True  # Quarto está disponível
+                    return False  #QUER DIZER QUE O QUARTO ESTÁ OCUPADO
+        return True  #QUARTO DISPONÍVEL
 
     def realizar_reserva(self, dia_inicio: int, dia_fim: int, cliente: str, quarto: str):
         if self.verificar_disponibilidade(quarto, dia_inicio, dia_fim):
@@ -32,7 +34,7 @@ class Pousada:
             print("Quarto não disponível para as datas selecionadas.")
 
     def consultar_reserva(self, cliente: str):
-        # Consultar reservas de um cliente específico
+        #FAZ UMA CONSULTA EM RELAÇÃO AS RESERVAS DE UM CLIENTE ESPECÍFICO
         for reserva in self.reservas:
             if reserva.cliente == cliente and reserva.status == 'A':
                 print(reserva)
@@ -40,10 +42,10 @@ class Pousada:
         print("Nenhuma reserva ativa encontrada para o cliente.")
 
     def mudar_status_reserva(self, cliente: str, novo_status: str):
-        # Mudar o status da reserva do cliente
+        #MUDA O STATUS DE RESERVA DE UM CLIENTE
         for reserva in self.reservas:
             if reserva.cliente == cliente and reserva.status == 'A':
-                reserva._Reserva__status = novo_status  # Muda o status da reserva diretamente
+                reserva._Reserva__status = novo_status 
                 print(f'Status da reserva de {cliente} alterado para {novo_status}.')
                 return
         print("Nenhuma reserva ativa encontrada para o cliente.")
