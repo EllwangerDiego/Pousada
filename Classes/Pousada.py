@@ -50,6 +50,39 @@ class Pousada:
                 return
         print("Nenhuma reserva ativa encontrada para o cliente.")
 
+    def realiza_checkin(self,cliente:str):
+        #realiza o check-in de uma reserva recebendo por parametro o nome de um cliente
+        for reserva in self.reservas:
+            if reserva.__cliente == cliente and reserva.__status == 'A': #Se a reserva exisitir e for ativa
+                reserva.__status = 'I'  #altera o status para check-in e mostra os dados da reserva e do quarto
+                print(f'Check-in da reserva de {cliente} realizado com sucesso.')
+                print(f'Data inicial: {reserva.__dia_inicio}')
+                print(f'Data final: {reserva.__dia_fim}')
+                print(f'Dias reservados: {reserva.__dia_fim - reserva.__dia_inicio + 1}')
+                print(f'Quarto: {reserva.quarto.__numero}')
+                print(f'Categoria do quarto: {reserva.quarto.__categoria}')
+                print(f'Valor total das diárias: {reserva.quarto.__diaria * (reserva.__dia_fim - reserva.__dia_inicio + 1)}'                
+            else:
+                print(f'Nenhuma reserva ativa encontrada para o cliente {cliente}.') 
+
+
+    def realiza_check_out(self, cliente: str):
+        #Verifica se a reserva existe e tem status de check-in
+        for reserva in self.reservas:
+            if reserva.__cliente == cliente and reserva.__status == 'I':
+                #Altera o status da reserva para check-out
+                reserva.__status = 'O'
+                print(f'Check-out da reserva de {cliente} realizado com sucesso.')
+                print(f'Data inicial: {reserva.__dia_inicio}')
+                print(f'Data final: {reserva.__dia_fim}')
+                print(f'Dias reservados: {reserva.__dia_fim - reserva.__dia_inicio + 1}')
+                print(f'Valor total das diárias: {reserva.quarto.__diaria * (reserva.__dia_fim - reserva.__dia_inicio + 1)}')
+                                
+                #Limpa o consumo do quarto
+                reserva.quarto.limpa_consumo()
+            else:
+                print(f'Nenhuma reserva em check-in encontrada para o cliente {cliente}.')
+    
     def __str__(self):
         return "\n".join(str(reserva) for reserva in self.reservas)
 
