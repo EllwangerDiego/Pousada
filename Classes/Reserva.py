@@ -5,7 +5,7 @@ class Reserva:
         self.__dia_inicio = dia_inicio
         self.__dia_fim = dia_fim
         self.__cliente = cliente
-        self.__quarto = quarto
+        self.__quarto: list[Quarto] = []
         self.__status = status
 
     @property
