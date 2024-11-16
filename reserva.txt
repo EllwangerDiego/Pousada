@@ -1,1 +1,2 @@
-Acessando arquivocom Python
+101,Joao,09/02/2006,10/02/2006,A
+102,Pedro,13/10/2024,15/10/2024,A

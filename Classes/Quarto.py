@@ -1,6 +1,6 @@
 #DIEGO ELLWANGER & JOÃO VITOR DALCIN ANDRIOLI
 
-from Produto import Produto
+from .Produto import Produto
 
 class Quarto:
     def __init__(self, numero: int, categoria: str, diaria: float):
@@ -13,32 +13,48 @@ class Quarto:
     @property
     def numero(self):
         return self.__numero
+    
+    @numero.setter
+    def numero(self, numero):
+        self.__numero = numero
 
     @property
     def categoria(self):
         return self.__categoria
+    
+    @categoria.setter
+    def categoria(self, categoria):
+        self.__categoria = categoria
 
     @property
     def diaria(self):
         return self.__diaria
+    
+    @diaria.setter
+    def diaria(self, diaria):
+        self.__diaria = diaria
 
     @property
     def consumo(self):
         return self.__consumo
+    
+    @consumo.setter
+    def consumo(self, consumo):
+        self.__consumo = consumo
 
     
     def carregar_produtos(self):
         #CARREGA OS PRODUTOS DO ARQUIVO "produto.txt"
-        produtos = []
+        consumo = []
         try:
             with open('produto.txt', 'r') as arquivo:
                 for linha in arquivo:
                     codigo, nome, preco = linha.strip().split(',')
-                    produtos.append(Produto(int(codigo), nome, float(preco)))
+                    consumo.append(Produto(int(codigo), nome, float(preco)))
         except FileNotFoundError:
             print("Arquivo produto.txt não encontrado. Nenhum produto carregado.")
-        return produtos
-    #DEVOLVE EM UMA LISTA "produtos", para mais fáci manipulação
+        return consumo
+    #DEVOLVE EM UMA LISTA "consumo", para mais fáci manipulação
 
     def adiciona_consumo(self, produto: str):
         #REGISTRA O CONSUMO DO PRODUTO
